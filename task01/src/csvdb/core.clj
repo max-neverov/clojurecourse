@@ -51,7 +51,7 @@
 ;;
 ;; Hint: assoc, Integer/parseInt, get
 (defn str-field-to-int [field rec]
-  42)
+  (assoc rec field (Integer/parseInt (field rec))))
 
 ;(def student (->> (data-table student-tbl)
 ;                  (map #(str-field-to-int :id %))
