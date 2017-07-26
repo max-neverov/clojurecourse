@@ -41,11 +41,9 @@
 ;;
 ;; Hint: let, map, next, table-keys, data-record
 (defn data-table [tbl]
-  (let [table-keys   (table-keys tbl)
-        data-records (next tbl)]
-    (data-record table-keys (map next tbl))))
-;    ((doseq [data-row data-records]
-;       (data-record table-keys data-row)))))
+  (let [tbl-keys (table-keys tbl)
+        tbl-records (next tbl)]
+    (map #(data-record tbl-keys %) tbl-records)))
 
 
 ;; (str-field-to-int :id {:surname "Ivanov", :year "1996", :id "1"})
