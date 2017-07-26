@@ -57,10 +57,10 @@
 ;                  (map #(str-field-to-int :id %))
 ;                  (map #(str-field-to-int :year %))))
 ;
-(def student 42)
-  ;(->> (data-table student-tbl)
-  ;                (map #(str-field-to-int :id %))
-  ;                (map #(str-field-to-int :year %))))
+(def student
+  (->> (data-table student-tbl)
+    (map #(str-field-to-int :id %))
+    (map #(str-field-to-int :year %))))
 
 (def subject (->> (data-table subject-tbl)
                   (map #(str-field-to-int :id %))))
@@ -75,7 +75,7 @@
 ;;
 ;; Hint: if-not, filter
 (defn where* [data condition-func]
-  :ImplementMe!)
+  (filter condition-func data))
 
 ;; (limit* student 1)
 ;; => ({:surname "Ivanov", :year 1998, :id 1})
